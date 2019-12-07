@@ -5,7 +5,6 @@ required:
   - endString
   - expiry
   - id
-  - inventory
   - location
   - psId
   - startString
@@ -18,17 +17,22 @@ properties:
     minLength: 1
     type: string
     format: date-time
+    description: Time that the Void Trader will arrive at the relay.
   expiry:
     minLength: 1
     type: string
     format: date-time
+    description: Time that the Void Trader will depart from the relay.
   character:
     minLength: 1
     type: string
+    description: The name of the Void Trader.
   location:
     minLength: 1
     type: string
+    description: The name of the relay Baro is either headed to or is currently at.
   inventory:
+    description: Collection of items currently being sold by the Void Trader. Only present if the Void Trader is currently active.
     type: array
     items:
       type: object
@@ -45,11 +49,34 @@ properties:
   psId:
     minLength: 1
     type: string
+    #TODO: description: What does this id represent?
   active:
     type: boolean
+    description: Is the Void Trader currently at a relay?
   startString:
-    minLength: 1
-    type: string
+    $ref: '#/components/schemas/dhmsTimeStart'
   endString:
-    minLength: 1
-    type: string
+    $ref: '#/components/schemas/dhmsTimeEnd'
+example:
+  id: '5d1e07a0a38e4a4fdd7cefca'
+  activation: '2019-12-06T14:00:00.000Z'
+  startString: '-1d 4h 35m 52s'
+  expiry: '2019-12-08T14:00:00.000Z'
+  active: true
+  character: "Baro Ki'Teer"
+  location: "Orcus Relay (Pluto)"
+  inventory:
+    - 
+      item: Sima Luxxum Ornament
+      ducats: 100
+      credits: 100000
+    - 
+      item: Vez Luxxum Ornament
+      ducats: 100
+      credits: 100000
+    -
+      item: 'Sands Of Inaros Blueprint'
+      ducats: 100
+      credits: 25000
+  psId: '5d1e07a0a38e4a4fdd7cefca28'
+  endString: '19h 24m 7s'

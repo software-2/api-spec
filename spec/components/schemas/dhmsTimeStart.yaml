@@ -1,0 +1,3 @@
+minLength: 1
+type: string
+description: "Time since the event began, written in a human-readable 'd m h s' format. When an element is 0 (ex: 1 days, 2 hours, 3 minutes, 0 seconds remaining) it is omitted. (ex: -1d 2h 3m). Note that this value is negative to denote a time in the past."

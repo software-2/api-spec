@@ -1,0 +1,3 @@
+minLength: 1
+type: string
+description: "Time until the event ends, written in a human-readable 'd m h s' format. When an element is 0 (ex: 0 days, 2 hours, 3 minutes, 0 seconds remaining) it is omitted. (ex: 2h 3m)"
